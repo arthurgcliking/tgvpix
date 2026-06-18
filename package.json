@@ -1,0 +1,31 @@
+{
+  "name": "tgvpix",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@react-three/drei": "^10.7.7",
+    "@react-three/fiber": "latest",
+    "@react-three/postprocessing": "^3.0.4",
+    "motion": "latest",
+    "next": "latest",
+    "postprocessing": "^6.39.1",
+    "react": "latest",
+    "react-dom": "latest",
+    "three": "latest"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@types/three": "latest",
+    "tailwindcss": "latest",
+    "typescript": "latest"
+  }
+}

@@ -1,0 +1,222 @@
+@import "tailwindcss";
+
+:root {
+  color-scheme: dark;
+  background: #000106;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-height: 100%;
+  background: #000106;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
+  background:
+    radial-gradient(circle at 55% 42%, rgba(8, 47, 73, 0.24), transparent 24rem),
+    radial-gradient(circle at 51% 57%, rgba(14, 165, 233, 0.045), transparent 18rem),
+    linear-gradient(180deg, #000106 0%, #01040b 48%, #000106 100%);
+  color: #f8fbff;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: geometricPrecision;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+::selection {
+  background: rgba(103, 232, 249, 0.26);
+  color: #ffffff;
+}
+
+.tgvpix-title-glow {
+  text-shadow:
+    0 0 10px rgba(186, 230, 253, 0.46),
+    0 0 34px rgba(14, 165, 233, 0.28),
+    0 0 86px rgba(8, 47, 73, 0.42);
+}
+
+.tgvpix-copy-glow {
+  text-shadow: 0 0 22px rgba(14, 165, 233, 0.18);
+}
+
+.tgvpix-hero-video {
+  filter: saturate(0.92) contrast(1.18) brightness(0.82);
+  object-position: 58% center;
+  transform: scale(1.015);
+  animation: tgvpix-video-in 1.6s ease-out both;
+}
+
+.tgvpix-video-scrim {
+  background:
+    radial-gradient(circle at 66% 43%, rgba(14, 165, 233, 0.1), transparent 31rem),
+    radial-gradient(circle at 73% 52%, rgba(103, 232, 249, 0.06), transparent 24rem),
+    linear-gradient(90deg, rgba(0, 1, 6, 0.96) 0%, rgba(0, 1, 6, 0.78) 24%, rgba(0, 1, 6, 0.18) 58%, rgba(0, 1, 6, 0.56) 100%),
+    linear-gradient(180deg, rgba(0, 1, 6, 0.42) 0%, transparent 42%, rgba(0, 1, 6, 0.74) 100%);
+}
+
+.tgvpix-video-depth {
+  background:
+    linear-gradient(180deg, rgba(0, 1, 6, 0.34), transparent 24%, transparent 60%, rgba(0, 1, 6, 0.72)),
+    radial-gradient(circle at 50% 50%, transparent 0 36%, rgba(0, 1, 6, 0.88) 100%);
+  mix-blend-mode: multiply;
+}
+
+.tgvpix-cta {
+  box-shadow:
+    0 0 0 1px rgba(103, 232, 249, 0.18),
+    0 0 22px rgba(14, 165, 233, 0.16),
+    inset 0 0 18px rgba(103, 232, 249, 0.05);
+}
+
+.tgvpix-cta::before {
+  position: absolute;
+  inset: 1px;
+  content: "";
+  border-radius: inherit;
+  background: linear-gradient(
+    112deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.14) 36%,
+    transparent 58%
+  );
+  opacity: 0;
+  transform: translateX(-70%);
+  transition:
+    opacity 240ms ease,
+    transform 640ms ease;
+}
+
+.tgvpix-cta:hover::before {
+  opacity: 1;
+  transform: translateX(76%);
+}
+
+.tgvpix-vignette {
+  background:
+    radial-gradient(circle at 60% 42%, transparent 0 20%, rgba(0, 1, 6, 0.46) 50%, rgba(0, 1, 6, 0.96) 100%),
+    linear-gradient(90deg, rgba(0, 1, 6, 0.88), transparent 33%, transparent 62%, rgba(0, 1, 6, 0.9)),
+    linear-gradient(180deg, rgba(0, 1, 6, 0.28), transparent 38%, rgba(0, 1, 6, 0.82));
+}
+
+.tgvpix-scanlines {
+  background:
+    linear-gradient(180deg, rgba(103, 232, 249, 0.035), transparent 18%, transparent 76%, rgba(14, 165, 233, 0.035)),
+    repeating-linear-gradient(
+      to bottom,
+      rgba(255, 255, 255, 0.024) 0,
+      rgba(255, 255, 255, 0.024) 1px,
+      transparent 1px,
+      transparent 7px
+    );
+  opacity: 0.18;
+}
+
+.tgvpix-noise {
+  background-image:
+    radial-gradient(circle at 19% 27%, rgba(255, 255, 255, 0.14) 0 1px, transparent 1px),
+    radial-gradient(circle at 68% 38%, rgba(103, 232, 249, 0.1) 0 1px, transparent 1px),
+    radial-gradient(circle at 42% 84%, rgba(255, 255, 255, 0.09) 0 1px, transparent 1px);
+  background-size:
+    6px 6px,
+    9px 9px,
+    13px 13px;
+  mix-blend-mode: overlay;
+  opacity: 0.085;
+  animation: tgvpix-noise-shift 7s steps(8) infinite;
+}
+
+.tgvpix-scan-sweep {
+  background: linear-gradient(
+    180deg,
+    transparent 0%,
+    rgba(103, 232, 249, 0.02) 46%,
+    rgba(103, 232, 249, 0.09) 50%,
+    rgba(103, 232, 249, 0.02) 54%,
+    transparent 100%
+  );
+  animation: tgvpix-scan-sweep 8.8s ease-in-out infinite;
+  opacity: 0.42;
+}
+
+@keyframes tgvpix-noise-shift {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  25% {
+    transform: translate3d(-1%, 1%, 0);
+  }
+  50% {
+    transform: translate3d(1%, -1%, 0);
+  }
+  75% {
+    transform: translate3d(-1%, -0.5%, 0);
+  }
+  100% {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes tgvpix-scan-sweep {
+  0%,
+  32% {
+    transform: translate3d(0, -130%, 0);
+  }
+  76%,
+  100% {
+    transform: translate3d(0, 130%, 0);
+  }
+}
+
+@keyframes tgvpix-video-in {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1.015);
+  }
+}
+
+@media (max-width: 640px) {
+  .tgvpix-hero-video {
+    object-position: 63% center;
+  }
+
+  .tgvpix-video-scrim {
+    background:
+      radial-gradient(circle at 60% 36%, rgba(14, 165, 233, 0.09), transparent 18rem),
+      linear-gradient(180deg, rgba(0, 1, 6, 0.24) 0%, rgba(0, 1, 6, 0.32) 44%, rgba(0, 1, 6, 0.9) 100%),
+      linear-gradient(90deg, rgba(0, 1, 6, 0.7), transparent 44%, rgba(0, 1, 6, 0.48));
+  }
+
+  .tgvpix-vignette {
+    background:
+      radial-gradient(circle at 56% 36%, transparent 0 18%, rgba(0, 1, 6, 0.5) 48%, rgba(0, 1, 6, 0.96) 100%),
+      linear-gradient(180deg, rgba(0, 1, 6, 0.3), transparent 42%, rgba(0, 1, 6, 0.9));
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
